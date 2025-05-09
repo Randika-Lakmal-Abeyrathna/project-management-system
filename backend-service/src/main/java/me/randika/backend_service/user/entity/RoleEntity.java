@@ -1,4 +1,4 @@
-package me.randika.backend_service.User.entity;
+package me.randika.backend_service.user.entity;
 
 import jakarta.persistence.*;
 import me.randika.backend_service.base.BaseEntity;
@@ -16,4 +16,20 @@ public class RoleEntity extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "permission_id")
     )
     private Set<PermissionEntity> permissions = new HashSet<>();
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public Set<PermissionEntity> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(Set<PermissionEntity> permissions) {
+        this.permissions = permissions;
+    }
 }

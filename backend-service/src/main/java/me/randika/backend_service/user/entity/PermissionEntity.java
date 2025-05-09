@@ -1,4 +1,4 @@
-package me.randika.backend_service.User.entity;
+package me.randika.backend_service.user.entity;
 
 import jakarta.persistence.Entity;
 import me.randika.backend_service.base.BaseEntity;

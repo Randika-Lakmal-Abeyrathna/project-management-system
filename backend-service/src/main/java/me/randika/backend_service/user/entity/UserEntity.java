@@ -1,8 +1,8 @@
-package me.randika.backend_service.User.entity;
+package me.randika.backend_service.user.entity;
 
 import jakarta.persistence.*;
-import me.randika.backend_service.User.Enums.UserStatus;
-import me.randika.backend_service.User.Enums.UserType;
+import me.randika.backend_service.user.enums.UserStatus;
+import me.randika.backend_service.user.enums.UserType;
 import me.randika.backend_service.base.BaseEntity;
 
 @Entity(name = "app_user")
