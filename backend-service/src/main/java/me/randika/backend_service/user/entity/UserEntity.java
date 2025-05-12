@@ -5,6 +5,9 @@ import me.randika.backend_service.user.enums.UserStatus;
 import me.randika.backend_service.user.enums.UserType;
 import me.randika.backend_service.base.BaseEntity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity(name = "app_user")
 public class UserEntity extends BaseEntity {
     private String firstName;
@@ -15,6 +18,12 @@ public class UserEntity extends BaseEntity {
     private String username;
     private UserType userType;
     private UserStatus userStatus;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "app_user_roles",
+        joinColumns = @JoinColumn(name = "app_user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<RoleEntity> roles = new HashSet<>();
 
     public UserEntity(String firstName, String lastNamee, String email, String password, String username, UserType userType, UserStatus userStatus) {
         this.firstName = firstName;
@@ -83,5 +92,13 @@ public class UserEntity extends BaseEntity {
 
     public void setUserStatus(UserStatus userStatus) {
         this.userStatus = userStatus;
+    }
+
+    public Set<RoleEntity> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<RoleEntity> roles) {
+        this.roles = roles;
     }
 }
